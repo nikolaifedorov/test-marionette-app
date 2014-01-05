@@ -39,6 +39,9 @@
       <p>This is text that was rendered by our Marionette app.</p>
     </script>
 
+    <script type="text/template" id="different-static-template">
+      <p>Text from a different template...</p>
+    </script>
 
     <!-- JavaScript -->
     <script src="./assets/js/vendor/jquery-2.0.3.js"></script>
@@ -60,7 +63,9 @@
 
       ContactManager.on("initialize:after", function() {
         // console.log("ContactManager has started!");
-        var staticView = new ContactManager.StaticView();
+        var staticView = new ContactManager.StaticView({
+          template: "#different-static-template"
+        });
         ContactManager.mainRegion.show(staticView);
       });
 
